@@ -1,0 +1,50 @@
+buildscript {
+	ext {
+		springBootVersion = '1.4.3.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+jar {
+	baseName = 'ddd'
+	version = '0.0.1-SNAPSHOT'
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+	maven { url "https://repo.spring.io/snapshot" }
+	maven { url "https://repo.spring.io/milestone" }	
+}
+
+
+dependencies {
+	compile 'org.springframework.cloud:spring-cloud-starter-eureka',
+	        'org.springframework.boot:spring-boot-starter-web',
+	        
+	        'de.codecentric:spring-boot-admin-server:1.5.0',
+	        'de.codecentric:spring-boot-admin-server-ui:1.5.0',
+	        
+            'be.ordina:microservices-dashboard-server:1.0.1',
+            'be.ordina:microservices-dashboard-ui:1.0.1',
+            
+            'org.jolokia:jolokia-core:1.3.6'
+
+	testCompile 'org.springframework.boot:spring-boot-starter-test'
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:Brixton.SR7"
+	}
+}
