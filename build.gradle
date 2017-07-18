@@ -1,6 +1,6 @@
 buildscript {
 	ext {
-		springBootVersion = '1.4.3.RELEASE'
+		springBootVersion = '1.5.4.RELEASE'
 	}
 	repositories {
 		mavenCentral()
@@ -29,8 +29,12 @@ repositories {
 
 
 dependencies {
-	compile 'org.springframework.cloud:spring-cloud-starter-eureka',
-	        'org.springframework.boot:spring-boot-starter-web',
+	compile 'org.springframework.boot:spring-boot-starter-web',
+	        'org.springframework.boot:spring-boot-starter-actuator',
+	        
+	        'org.springframework.cloud:spring-cloud-starter-sleuth',
+		    'org.springframework.cloud:spring-cloud-starter-zipkin',
+	        'org.springframework.cloud:spring-cloud-starter-eureka',
 	        
 	        'de.codecentric:spring-boot-admin-server:1.5.0',
 	        'de.codecentric:spring-boot-admin-server-ui:1.5.0',
@@ -45,6 +49,6 @@ dependencies {
 
 dependencyManagement {
 	imports {
-		mavenBom "org.springframework.cloud:spring-cloud-dependencies:Brixton.SR7"
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:Dalston.RELEASE"
 	}
 }

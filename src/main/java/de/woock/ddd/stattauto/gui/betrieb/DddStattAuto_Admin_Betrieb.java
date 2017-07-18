@@ -8,7 +8,7 @@ import be.ordina.msdashboard.EnableMicroservicesDashboardServer;
 import de.codecentric.boot.admin.config.EnableAdminServer;
 
 @EnableAdminServer
-@EnableMicroservicesDashboardServer
+//@EnableMicroservicesDashboardServer
 @EnableDiscoveryClient
 @SpringBootApplication
 public class DddStattAuto_Admin_Betrieb {
